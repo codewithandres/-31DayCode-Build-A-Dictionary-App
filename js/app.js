@@ -5,7 +5,7 @@ const wapper = document.querySelector('.wrapper'),
 
 const fetchApi = async (word) => {
     infoText.style.color = '#000'
-    infoText.innerHTML = ` Searching the meaning of <span> "${word}" </span> `;
+    infoText.innerHTML = ` Buscando el significado de <span> "${word}" </span> `;
 
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
@@ -15,7 +15,7 @@ const fetchApi = async (word) => {
 
         data(result, word);
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 const data = (result, word) => {
@@ -26,8 +26,7 @@ const data = (result, word) => {
     }
 }
 
-searchInput.addEventListener('keyup', ({ key, target: { value } }) => {
-
+searchInput.addEventListener('keyup', ({ key, target: { value }, }) => {
     if (key === 'Enter' && value) {
 
         fetchApi(value);
